@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$COLDCAT - Meme</title>
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            
+        }
+        h1 {
+            color: white;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.2rem;
+        }
+        .logo {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .logo img {
+            width: 300px;
+            height: auto;
+        }
+        main {
+            color: white;
+        }
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            const text = 'Welcome to $COLDCAT';
+            let index = 0;
+
+            function decodeText() {
+                if (index < text.length) {
+                    let decodedText = '';
+                    for (let i = 0; i < text.length; i++) {
+                        if (i <= index) {
+                            decodedText += text[i];
+                        } else {
+                            decodedText += '.';
+                        }
+                    }
+                    preloader.textContent = decodedText;
+                    index++;
+                    setTimeout(decodeText, 100);
+                } else {
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 1000);
+                }
+            }
+
+            decodeText();
+        });
+
+        // Add styles for the preloader text
+        const style = document.createElement('style');
+        style.textContent = `
+            .preloader {
+                color: white;
+                font-size: 24px;
+                font-family: 'Orbitron', sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <header>
+        <nav>
+            <a href="#pump">Pump</a>
+            <a href="https://t.me/coldcatcoin" target="_blank">Telegram</a>
+            <a href="https://x.com/ColdCat_CO" target="_blank">Twitter</a>
+            <a href="#dexscreener" target="_blank">Dexscreener</a>
+        </nav>
+        <style>
+            header {
+                background-color: #28c8fd;
+            }
+            nav a {
+                transition: transform 0.3s ease;
+            }
+            nav a:hover {
+                transform: scale(1.1);
+            }
+        </style>
+    </header>
+    <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;">
+        <div class="logo">
+            <img src="withoutbg.png" alt="$COLDCAT Logo" class="vibrating-logo">
+        </div>
+        <style>
+            @keyframes vibrate {
+                0% { transform: translate(0); }
+                25% { transform: translate(-2px, 2px); }
+                50% { transform: translate(2px, -2px); }
+                75% { transform: translate(-2px, -2px); }
+                100% { transform: translate(2px, 2px); }
+            }
+            .vibrating-logo {
+                animation: vibrate 0.1s linear infinite;
+            }
+        </style>
+        <h1>Welcome to <span class="blink">$COLDCAT</span></h1>
+        <p>Fan token</p>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+            .copy-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 20px 0;
+                font-family: 'Orbitron', sans-serif;
+            }
+            .copy-label {
+                color: white;
+                font-size: 1.4rem;
+                margin-right: 10px;
+                font-weight: 700;
+            }
+            .copy-text {
+                background-color: #333;
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 1.2rem;
+            }
+            .copy-button, .buy-button {
+                background-color: black;
+                color: white;
+                border: 2px solid white;
+                padding: 10px 20px;
+                margin-left: 10px;
+                cursor: pointer;
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1rem;
+                border-radius: 5px;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .blink {
+                animation: blinker 2s linear infinite;
+                color: #28c8fd;
+            }
+            @keyframes blinker {
+                50% {
+                    opacity: 0;
+                }
+            }
+        </style>
+       <!-- <div class="copy-container">
+            <span class="copy-label">CA:</span>
+            <div class="copy-text" id="contract-address">DEyebZ5eoj3Z1QVmopdvwLemkkyenm4uQsSeX1enpump</div>
+            <button class="copy-button" onclick="copyToClipboard()">COPY</button>
+        </div>-->
+        <style>
+            .copy-button:hover, .buy-button:hover {
+                transform: scale(1.05);
+                transition: transform 0.2s ease-in-out;
+            }
+        </style>
+        <style>
+            .copy-button, .buy-button {
+                background-color: #28c8fd;
+                color: white;
+                border: 2px solid #28c8fd;
+            }
+            .copy-button:hover, .buy-button:hover {
+                background-color: #1fa8d8;
+                border-color: #1fa8d8;
+            }
+        </style>
+
+        <div class="copy-container" style="display: flex; justify-content: center; gap: 20px;">
+            <a href="#" class="buy-button" target="_blank">BUY TOKEN</a>
+            <a href="https://t.me/coldcatcoin" class="buy-button" target="_blank">JOIN COMMUNITY</a>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <script>
+            function copyToClipboard() {
+                const text = document.getElementById('contract-address').innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('CA copied to clipboard!');
+                });
+            }
+        </script>
+    </main>
+    
+    <section id="about" style="text-align: center; padding: 2rem 0; background-color: #222; margin: 2rem 0; border-radius: 10px;">
+        <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">ABOUT COLDCAT</h2>
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+            <p style="color: #28c8fd; font-size: 1.2rem; line-height: 1.6;">
+                COLDCAT - Born from the fusion of cutting-edge technology and internet culture, COLDCAT aims to bring fun, community, and real utility to the blockchain.
+            </p>
+            <p style="color: white; font-size: 1.1rem; line-height: 1.5; margin-top: 1rem;">
+                Our mission is to create a vibrant ecosystem where memes meet meaningful applications. With COLDCAT, you're not just holding a token; you're part of a movement that's redefining what's possible in the world of decentralized finance.
+            </p>
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #28c8fd; font-size: 1.5rem;">Key Features:</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="color: white; margin: 0.5rem 0;">🚀 Community-driven development</li>
+                    <li style="color: white; margin: 0.5rem 0;">💎 Deflationary tokenomics</li>
+                    <li style="color: white; margin: 0.5rem 0;">🔒 Liquidity locked for security</li>
+                    <li style="color: white; margin: 0.5rem 0;">🎮 Upcoming NFT and gaming integrations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <footer style="width: 100%; background-color: #28c8fd; color: white; text-align: center; padding: 1rem 0; margin-top: auto;">
+        <p>© 2024 COLDCAT. All rights reserved.</p>
+    </footer>
+</body>
+</html>
