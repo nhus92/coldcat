@@ -14,7 +14,7 @@
             align-items: center;
             min-height: 100vh;
             background-color: #000;
-            background-image: url('snowfall3.gif');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('w3.gif');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -24,9 +24,15 @@
             color: white;
         }
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: #333;
+            background-color: transparent;
+            backdrop-filter: blur(3px);
             padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid white;
         }
         nav {
             display: flex;
@@ -48,6 +54,7 @@
         }
         main {
             color: white;
+            margin-top: 60px; /* Add top margin to account for fixed header */
         }
         .preloader {
             position: fixed;
@@ -65,6 +72,21 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        footer {
+            width: 100%;
+            background-color: transparent;
+            backdrop-filter: blur(3px);
+            padding: 1rem 0;
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            margin-top: auto;
+        }
+        #about {
+            background-color: transparent;
+            backdrop-filter: blur(3px) !important;
+            border: 1px solid white;
         }
     </style>
 </head>
@@ -119,19 +141,47 @@
     </script>
     <header>
         <nav>
-            <a href="#pump">Pump</a>
-            <a href="https://t.me/coldcatcoin" target="_blank">Telegram</a>
-            <a href="https://x.com/ColdCat_CO" target="_blank">Twitter</a>
-            <a href="#dexscreener" target="_blank">Dexscreener</a>
+            <a href="#dexscreener" target="_blank" class="menu-icon">
+                <div class="icon-circle">
+                    <img src="dex2.png" alt="Dexscreener">
+                </div>
+            </a>
+            <a href="https://t.me/coldcatcoin" target="_blank" class="menu-icon">
+                <div class="icon-circle">
+                    <img src="tg2.png" alt="Telegram">
+                </div>
+            </a>
+            <a href="https://x.com/ColdCat_CO" target="_blank" class="menu-icon">
+                <div class="icon-circle">
+                    <img src="tw2.png" alt="Twitter">
+                </div>
+            </a>
+            
         </nav>
         <style>
-            header {
-                background-color: #28c8fd;
+            nav {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
             }
-            nav a {
+            .menu-icon {
+                text-decoration: none;
+            }
+            .icon-circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #28c8fd;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 transition: transform 0.3s ease;
             }
-            nav a:hover {
+            .icon-circle img {
+                width: 30px;
+                height: 30px;
+            }
+            .icon-circle:hover {
                 transform: scale(1.1);
             }
         </style>
@@ -241,7 +291,7 @@
         </script>
     </main>
     
-    <section id="about" style="text-align: center; padding: 2rem 0; background-color: #222; margin: 2rem 0; border-radius: 10px;">
+    <section id="about" style="text-align: center; padding: 2rem 0; margin: 2rem 0; border-radius: 10px;">
         <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">ABOUT COLDCAT</h2>
         <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
             <p style="color: #28c8fd; font-size: 1.2rem; line-height: 1.6;">
@@ -261,10 +311,78 @@
             </div>
         </div>
     </section>
-    
+    <div class="marquee-container" style="overflow: hidden; background-color: rgba(40, 200, 253, 0.2); padding: 10px 0; margin-bottom: 2rem; width: 100%;">
+        <div class="marquee-content" style="display: inline-block; white-space: nowrap; animation: marquee 40s linear infinite alternate;">
+            <span style="color: #28c8fd; font-size: 1.2rem; margin-right: 50px;">Buy $COLDCAT Now! 🚀</span>
+            <span style="color: #28c8fd; font-size: 1.2rem; margin-right: 50px;">Join the COLDCAT Community! 😺</span>
+            <span style="color: #28c8fd; font-size: 1.2rem; margin-right: 50px;">Don't Miss Out on $COLDCAT! 💎</span>
+            <span style="color: #28c8fd; font-size: 1.2rem; margin-right: 50px;">COLDCAT to the Moon! 🌙</span>
+        </div>
+    </div>
+
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+
+    <style>
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #28c8fd;
+            margin: 1rem auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const howToBuySection = document.getElementById('how-to-buy');
+            const divs = howToBuySection.querySelectorAll('div[style*="margin-bottom: 2rem"]');
+            
+            divs.forEach((div) => {
+                const arrow = document.createElement('div');
+                arrow.className = 'arrow-down';
+                div.appendChild(arrow);
+            });
+        });
+    </script>
+
+
+    <section id="how-to-buy" style="text-align: center; padding: 2rem 0; margin: 2rem 0; border-radius: 10px; background-color: transparent; backdrop-filter: blur(3px); border: 1px solid white;">
+        <h2 style="color: white; font-size: 2rem; margin-bottom: 1rem;">HOW TO BUY</h2>
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem;"><span style="color: #28c8fd;">1. CREATE</span> <span style="color: white; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #28c8fd; text-underline-offset: 5px;">WALLET</span></h3>
+                <p style="color: white; font-size: 1.1rem; line-height: 1.5;">
+                    Download Phantom or your wallet of choice from the app store or Google Play for free. Desktop users, download the Google Chrome extension by going to Phantom.
+                </p>
+            </div>
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem;"><span style="color: #28c8fd;">2. GET SOME</span> <span style="color: white; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #28c8fd; text-underline-offset: 5px;">SOL</span></h3>
+                <p style="color: white; font-size: 1.1rem; line-height: 1.5;">
+                    Have SOL in your wallet to switch to $KIT. If you don't have any SOL, you can buy directly on Phantom, transfer from another wallet, or buy on another exchange and send it to your wallet.
+                </p>
+            </div>
+            <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem;"><span style="color: #28c8fd;">3. GO TO</span> <span style="color: white; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #28c8fd; text-underline-offset: 5px;">JUP.AG</span></h3>
+                <p style="color: white; font-size: 1.1rem; line-height: 1.5;">
+                    Connect to Jupiter. Connect your wallet in chrome. Paste the $KIT token address and confirm. When Phantom prompts you for a wallet signature, sign.
+                </p>
+            </div>
+            <div>
+                <h3 style="font-size: 1.5rem;"><span style="color: #28c8fd;">4. SWAP TO</span> <span style="color: white; text-decoration: underline; text-decoration-style: wavy; text-decoration-color: #28c8fd; text-underline-offset: 5px;">$COLDCAT</span></h3>
+                <p style="color: white; font-size: 1.1rem; line-height: 1.5;">
+                    Switch SOL for $KIT. We have Zero taxes so you don't need to worry about buying with a specific slippage.
+                </p>
+            </div>
+        </div>
+    </section>
 
     
-    <footer style="width: 100%; background-color: #28c8fd; color: white; text-align: center; padding: 1rem 0; margin-top: auto;">
+    <footer style="width: 100%; color: white; text-align: center; padding: 1rem 0; margin-top: auto;">
         <p>© 2024 COLDCAT. All rights reserved.</p>
     </footer>
 </body>
